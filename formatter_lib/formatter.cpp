@@ -3,8 +3,8 @@
 std::string formatter(const std::string& message)
 {
     std::string res;
-    res += "-------------------------\n";
+    res += "--------------------------\n";
     res += message + "\n";
-    res += "-------------------------\n";
+    res += "--------------------------\n";
     return res;
 }
