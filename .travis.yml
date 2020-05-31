@@ -36,7 +36,7 @@ script:
  - cmake --build _build --target package_source
  - cd _build
  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop  ;fi
- - if [ "$TRAVIS_OS_NAME" = "linux" ]; cpack -G DEB
- - if [ "$TRAVIS_OS_NAME" = "linux" ]; cpack -G RPM
+ - if [ "$TRAVIS_OS_NAME" = "linux" ]; cpack -G DEB  ;fi
+ - if [ "$TRAVIS_OS_NAME" = "linux" ]; cpack -G RPM  ;fi
  
  
