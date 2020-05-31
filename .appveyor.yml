@@ -1,5 +1,6 @@
-image: Visual Studio 2019
-
+platform:
+ - x86
+ - x64
 
 build_script:
  - cmd: cd hello_world_application
@@ -14,4 +15,5 @@ build_script:
  - cmd: cmake --build _build
  - cmd: cmake --build _build --target solver
  - cmd: echo "Testing solver is done"
+ - cmd: cd _build
  - cmd: cpack -G WIX
