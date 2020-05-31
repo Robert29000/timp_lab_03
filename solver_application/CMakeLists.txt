@@ -14,7 +14,7 @@ add_subdirectory(../solver_lib solver_lib)
 
 target_link_libraries(solver formatter_ex solver_lib)
 
-install(TARGETS solver formatter_ex solver_lib)
+install(TARGETS solver)
 
 include(CPackConfig.cmake)
 include(CPackSourceConfig.cmake)
