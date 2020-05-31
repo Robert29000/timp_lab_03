@@ -14,3 +14,6 @@ build_script:
  - cmd: cmake --build _build
  - cmd: cmake --build _build --target solver
  - cmd: echo "Testing solver is done"
+ - cmd: cmake --build _build --target package_source
+ - cmd: cd _build
+ - cmd: cpack -G WIX
