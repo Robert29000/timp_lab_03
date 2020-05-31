@@ -1,12 +1,12 @@
 language: cpp
 
-compiler:
- - gcc
- - clang
-
 os:
- - osx
  - linux
+ - osx
+ 
+compiler:
+- gcc
+- clang
 
 addons:
  apt:
@@ -20,7 +20,6 @@ addons:
    - g++-7
    - rpm
 
-os: osx
 script:
  - cd hello_world_application
  - cmake -H. -B_build
@@ -36,23 +35,8 @@ script:
  - echo "Solver application testing is done"
  - cmake --build _build --target package_source
  - cd _build
- - cpack -G DragNDrop
+ - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop  ;fi
+ - if [ "$TRAVIS_OS_NAME" = "linux" ]; cpack -G DEB
+ - if [ "$TRAVIS_OS_NAME" = "linux" ]; cpack -G RPM
  
-os: linux
- - cd hello_world_application
- - cmake -H. -B_build
- - cmake --build _build
- - cmake --build _build --target hello_world
- - ./_build/hello_world
- - echo "Hello world application testing is done"
- - cd ..
- - cd solver_application
- - cmake -H. -B_build
- - cmake --build _build
- - cmake --build _build --target solver
- - echo "Solver application testing is done"
- - cmake --build _build --target package_source
- - cd _build
- - cpack -G DEB
- - cpack -G RPM
  
