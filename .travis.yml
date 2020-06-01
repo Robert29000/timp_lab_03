@@ -48,6 +48,6 @@ deploy:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then solver_application/_build/solver.dmg  ;fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then solver_application/_build/solver.deb  ;fi
   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then solver_application/_build/solver.rpm  ;fi
- skip_cleanup: true
+ cleanup: true
  on:
   tags: true
