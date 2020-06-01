@@ -1,53 +1,51 @@
 language: cpp
-
 os:
- - linux
- - osx
- 
+- linux
+- osx
 compiler:
 - gcc
 - clang
-
 addons:
- apt:
-  sources:
-   - ubuntu-toolchain-r-test
-   - llvm-toolchain-precise-3.7
-  packages:
-   - cmake
-   - cmake-data
-   - clang-3.7
-   - g++-7
-   - rpm
-
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - llvm-toolchain-precise-3.7
+    packages:
+    - cmake
+    - cmake-data
+    - clang-3.7
+    - g++-7
+    - rpm
 script:
- - cd hello_world_application
- - cmake -H. -B_build
- - cmake --build _build
- - cmake --build _build --target hello_world
- - ./_build/hello_world
- - echo "Hello world application testing is done"
- - cd ..
- - cd solver_application
- - cmake -H. -B_build
- - cmake --build _build
- - cmake --build _build --target solver
- - echo "Solver application testing is done"
- - cmake --build _build --target package_source
- - cd _build
- - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop  ;fi
- - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB  ;fi
- - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
- 
+- cd hello_world_application
+- cmake -H. -B_build
+- cmake --build _build
+- cmake --build _build --target hello_world
+- "./_build/hello_world"
+- echo "Hello world application testing is done"
+- cd ..
+- cd solver_application
+- cmake -H. -B_build
+- cmake --build _build
+- cmake --build _build --target solver
+- echo "Solver application testing is done"
+- cmake --build _build --target package_source
+- cd _build
+- if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop  ;fi
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB  ;fi
+- if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
+
 deploy:
- provider: releases
- api_key: "f2154a49bd2d86769b45738e3d665a6fd54779f8"
- file:
-  - solver_application/_build/solver-source-files.tar.gz
-  - solver_application/_build/solver-source-files.zip
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then solver_application/_build/solver.dmg  ;fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then solver_application/_build/solver.deb  ;fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then solver_application/_build/solver.rpm  ;fi
- cleanup: true
- on:
-  tags: true
+  provider: releases
+  api_key:
+    secure: qssCE9psDNqsPga/jBcoC0OIkxGazwlzvh8QImCBXWAlRGTfR+x5HCvDun3bzMt7ybXfhNysXSlxe4UcEfFmeoPu6VMHQ3FmWnyyrjCv4cBlWTspb/B+weypXDmzzZEgRkHx5hXyM15op/ObF739gAKrXQmuz2zMJf7+UfF/Mnl1qy1PeKGsEp90fbcWDEAcLp8KMCLm2QuhXRyLH7sdMZ4Z9Z9K4nZBYeyuZwGXUKdBagHK3PQEbW5sLzUd2wZtwZrAHGnh251yNkY5FVulhrbmAX12kWCv6CRSORP5tB5LieoSkoqcHrv0SFzceG594SkPxnI35BTHNNxyh8s48w5HLmty/JvoFxG4aAmAV8EFeKVKqN66NQP31RSToc81NJ3ATXOUzLmONTW0GsmjSd4piYHIJfTTLhOJIiICXQEJkG3gfasb3sU0n0804GamW3CkZ5z1z6OuqCILgX5ONtk7shV9haKtQkJQxu1i8sP4ktsYMelsgglbj0V4+IdyBtS6KaMTZR+Lel3Eoida3yclJGK0nsNaG9izYgK+dfQ6P5247To6KisxTUPL9Z6wxwN8OulX+Sj9+Vez6Tza85gREQOENShZAPKZrP6xYttIJ6YouhQM9VP5w5hvJ9eHXbZNNI5trwuKSCI4QuIB6u7haqIEwgNUAEl9JHWJxeM=
+  file:
+   - 'solver_application/_build/solver-source-files.zip'
+   - 'solver_application/_build/solver-source-files.tar.gz'
+   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then 'solver_application/_build/solver.dmg'  ;fi
+   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.rpm'  ;fi
+   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.deb'  ;fi
+  on:
+    tags: true
+    repo: Robert29000/timp_lab_03
+  skip_cleanup: 'true'
