@@ -41,7 +41,7 @@ script:
  
 deploy:
  provider: releases
- api_key: d59053b9034ab7b9f0379b761a078059e1b3a779
+ api_key: "02806a94773654a42a5067c21895dd3bb69b0469"
  file:
   - solver_application/_build/solver-source-files.tar.gz
   - solver_application/_build/solver-source-files.zip
