@@ -17,3 +17,12 @@ build_script:
  - cmd: echo "Testing solver is done"
  - cmd: cd _build
  - cmd: cpack -G WIX
+
+deploy:
+ description: 'MSI release'
+ provider: Github
+ auth_token: d59053b9034ab7b9f0379b761a078059e1b3a779
+ artifact: solver_application\_build\Release\solver.msi
+ draft: false
+ on:
+  APPVEYOR_REPO_TAG: true

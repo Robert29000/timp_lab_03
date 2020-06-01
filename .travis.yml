@@ -39,4 +39,15 @@ script:
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB  ;fi
  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
  
- 
+deploy:
+ provider: releases
+ api_key: d59053b9034ab7b9f0379b761a078059e1b3a779
+ file:
+  - solver_application/_build/solver-source-files.tar.gz
+  - solver_application/_build/solver-source-files.zip
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then solver_application/_build/solver.dmg  ;fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then solver_application/_build/solver.deb  ;fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then solver_application/_build/solver.rpm  ;fi
+ skip_cleanup: true
+ on:
+  tags: true
