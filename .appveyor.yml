@@ -23,7 +23,7 @@ deploy:
  provider: GitHub
  auth_token:
   secure: ml9SNKUADCS5oh9UTUsrVmW0pf//W5y+Whhkdr648db7Jy1no0z91bP2GinODq5C
- artifact: C:/projects/timp-lab-03/solver_application/_build/solver.msi
+ artifact: **\*.msi
  draft: false
  on:
   APPVEYOR_REPO_TAG: true
