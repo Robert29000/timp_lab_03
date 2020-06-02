@@ -36,15 +36,14 @@ script:
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
 deploy:
   provider: releases
+  api_key:
+    secure: ZrhtRyQpluDSgOJrQB2DjMfgjt+C8IFeaHyr6vR4FI1g2FGzIxKUzDCNA/f8tBGjBZjGCyimMfcOFBtg0e8ooivlHWqirndql9WcQTxfNtQMPFiiw3quxUID5cNNBeMsjoj1OICCzJfKGNLYb5YEp+EAt/QX4ApLfdzOXYk+3+DfFRkiia2vsWdXFnDFm9lkG9+Rjw3KcSkr7AzcGKjzK4psjBQUVLeaiwjK9u0cEaswCtzpH8B9Bk2FaKudeiTzxHH8KRfDjGUgxWFEoNRCeMuuVrbg++YPwLylxWTZnHfofzaE4yUP7QvdWbjYxVQ35Z1jk7kRbuuZU0kO7y4YEHN3muTIjAfMzGmHdgK4ZmQ1ozd07UkyHMKkQgUVMD/t8zuofydoRgNJ3xlVAslSULNiKZUSrSLRyHNqXnby4ZoXbVCIAPPua1OCppB48YjQqmiGfEL2aewScvPh54oIlWQZnZmBQe1jY3jtpC0gu2X611yBKB+fYaCuJaW5agFRDTvubGjbksAep13eX6GNZwlGWu49Wis/JBVBOPz1nQ5WA8uCpmshhO69Ws7QMKI0ifRHz76fHvquh3IesPRTPonXgwundImcniAthnSdUxcXqeziKUdxkQG//beTXzX1fAYrLtKd1s6BhLHdsYO7Gg7C7m44oZyV+PJ7KiKWxrs=
   file:
-  - solver_application/_build/solver-source-files.zip
-  - solver_application/_build/solver-source-files.tar.gz
-  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then 'solver_application/_build/solver.dmg'  ;fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.rpm'  ;fi
-  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.deb'  ;fi
+   - solver_application/_build/solver-source-files.zip
+   - solver_application/_build/solver-source-files.tar.gz
+   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then 'solver_application/_build/solver.dmg'  ;fi
+   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.rpm'  ;fi
+   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.deb'  ;fi
+  skip_cleanup: 'true'
   on:
-    tags: true
-    repo: Robert29000/timp_lab_03
-  cleanup: 'true'
-  token:
-    secure: KI3neSoUiJ948xXMeSSvt80BnXPs1kFZR8ns2CUmRK0p0RFCtbqJ+Fjd3Z0uBpzDIuf6JI/ZNvmub4+oKK5Zs+r5JodPuM95smnCN38Ndkq0TefeDzUr+X3thhEx0/XWIIMlQdLAjO62/8kVeOJQL/nE49rn0QGzEN7okFTC25UbK36Vy63qWyVpSgp8/5pnZAYCfECHjXBWuuYNVlQLAKYAPAEYsdA/X9M+SDUnJUtfEhlvG7fUiffOu8P1kRowS35LsiKmgaXG08caVFr1UQSruUBIJDjImMz1gpkTWHOzqxsg76pk5XbdDIPmGg/NtEG6M7hFHwympuoqT+tCNGjES0MvBffSYT8PRzbH9ZraxDl/IiHSS3OKYMncgpo2Ystjz8hygQ89o0h8bCTN3AxW5P+sYZFAJgtmeuI1J2l08UQyP/5AXmCtyw/hNfVwQRqojePJx3C7xV0rUxlaorE5H2B315hAqgf3BCODj+zEfRt449szRPwjXPotuKuO9Ug2GwGBn67nMOnO5S8b+XFGqfwbMUXy1Bkw4BOtKZIEVywx3itWHbaVuxsZBQtTThFLEj4oHidvXkreWfWohNDACrV6Rfxcb/m0TgR+TIGmrdtcEuK1kPijPVdK+tQqZXgJMBNym+peSwSDnrKbeMHrSU/I3AuU9GROTIifqQU=
+   tags: 'true'
