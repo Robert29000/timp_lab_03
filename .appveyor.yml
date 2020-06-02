@@ -25,7 +25,7 @@ deploy:
   secure: ml9SNKUADCS5oh9UTUsrVmW0pf//W5y+Whhkdr648db7Jy1no0z91bP2GinODq5C
  artifact:
   - path: '**\*.msi'
-    name: App
+    name: 'App'
  draft: false
  on:
   APPVEYOR_REPO_TAG: true
