@@ -36,8 +36,7 @@ script:
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
 deploy:
   provider: releases
-  api_key:
-    secure: ZrhtRyQpluDSgOJrQB2DjMfgjt+C8IFeaHyr6vR4FI1g2FGzIxKUzDCNA/f8tBGjBZjGCyimMfcOFBtg0e8ooivlHWqirndql9WcQTxfNtQMPFiiw3quxUID5cNNBeMsjoj1OICCzJfKGNLYb5YEp+EAt/QX4ApLfdzOXYk+3+DfFRkiia2vsWdXFnDFm9lkG9+Rjw3KcSkr7AzcGKjzK4psjBQUVLeaiwjK9u0cEaswCtzpH8B9Bk2FaKudeiTzxHH8KRfDjGUgxWFEoNRCeMuuVrbg++YPwLylxWTZnHfofzaE4yUP7QvdWbjYxVQ35Z1jk7kRbuuZU0kO7y4YEHN3muTIjAfMzGmHdgK4ZmQ1ozd07UkyHMKkQgUVMD/t8zuofydoRgNJ3xlVAslSULNiKZUSrSLRyHNqXnby4ZoXbVCIAPPua1OCppB48YjQqmiGfEL2aewScvPh54oIlWQZnZmBQe1jY3jtpC0gu2X611yBKB+fYaCuJaW5agFRDTvubGjbksAep13eX6GNZwlGWu49Wis/JBVBOPz1nQ5WA8uCpmshhO69Ws7QMKI0ifRHz76fHvquh3IesPRTPonXgwundImcniAthnSdUxcXqeziKUdxkQG//beTXzX1fAYrLtKd1s6BhLHdsYO7Gg7C7m44oZyV+PJ7KiKWxrs=
+  api_key: c8ae0721c7bdb20c61f443e00db264a6795ed17e
   file:
    - solver_application/_build/solver-source-files.zip
    - solver_application/_build/solver-source-files.tar.gz
