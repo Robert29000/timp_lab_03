@@ -34,11 +34,10 @@ script:
 - if [ "$TRAVIS_OS_NAME" = "osx" ]; then cpack -G DragNDrop  ;fi
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G DEB  ;fi
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
-
 deploy:
   provider: releases
   api_key:
-    secure: qssCE9psDNqsPga/jBcoC0OIkxGazwlzvh8QImCBXWAlRGTfR+x5HCvDun3bzMt7ybXfhNysXSlxe4UcEfFmeoPu6VMHQ3FmWnyyrjCv4cBlWTspb/B+weypXDmzzZEgRkHx5hXyM15op/ObF739gAKrXQmuz2zMJf7+UfF/Mnl1qy1PeKGsEp90fbcWDEAcLp8KMCLm2QuhXRyLH7sdMZ4Z9Z9K4nZBYeyuZwGXUKdBagHK3PQEbW5sLzUd2wZtwZrAHGnh251yNkY5FVulhrbmAX12kWCv6CRSORP5tB5LieoSkoqcHrv0SFzceG594SkPxnI35BTHNNxyh8s48w5HLmty/JvoFxG4aAmAV8EFeKVKqN66NQP31RSToc81NJ3ATXOUzLmONTW0GsmjSd4piYHIJfTTLhOJIiICXQEJkG3gfasb3sU0n0804GamW3CkZ5z1z6OuqCILgX5ONtk7shV9haKtQkJQxu1i8sP4ktsYMelsgglbj0V4+IdyBtS6KaMTZR+Lel3Eoida3yclJGK0nsNaG9izYgK+dfQ6P5247To6KisxTUPL9Z6wxwN8OulX+Sj9+Vez6Tza85gREQOENShZAPKZrP6xYttIJ6YouhQM9VP5w5hvJ9eHXbZNNI5trwuKSCI4QuIB6u7haqIEwgNUAEl9JHWJxeM=
+    secure: s5yduBUftXYOyJS+lY68+LHSNLZ9klzSLlRq55MTPweMMZuDFbwFGQ/KmKnPX8GgOsICsLL7POHrko6DI7tmu3hPgr7H/Zy35kBda/nPoYZt4UV0Qi6S+5APcWG2LhYGg0+UGJ5oCyHPHc+7bTlH1jqQG8Vla5GT3ugOy531eNBOnYkMhEuzw2pRmSs8ImDxKy4QoRGBTLm0BcfS0OzDdz5wOZHrDgmivRSlJd0e+yEBcyRMRFtOOa5ZcOzC7afQ98NSdUJadOMLwJrsazQ20Cgm2dNl/yAtdslxJm8mdnYDgFW0s4PqFGh7TmCiiupMC0E9mKcBnBw6LmNflHf+DeDGNlDdMCEnbMxw3THRDNEGN9WqwXUK6fkgm/0FzFzC+V+sFNkuHJOIoQ0HnVjYKdLew4jfzd1O/tzC0TB5kPctK6ZGD2GWMG5Xx2oZHKeKT9h7RYgQ34Fay1B6ztZF0KYWoPJLsGTX9wVuFrT9BkTC6IhmG1X80axZw1I4x9jdr5pANTjfjW84pDCzaxs/yEfEwEDFs3q1IK85bqD42bdByAfV8E8fNVI1rTJHYSYf4T9dsMgPEjHrwMxgBS2QPteJQpsARjHv8vxeF3l8HdPL0e8XD3aXTP4ZGmQK7h+UQFRyk7u/waThkxzY0QLzR6gUDocEf271dlo/xZp/Cv0=
   file:
    - 'solver_application/_build/solver-source-files.zip'
    - 'solver_application/_build/solver-source-files.tar.gz'
