@@ -36,15 +36,15 @@ script:
 - if [ "$TRAVIS_OS_NAME" = "linux" ]; then cpack -G RPM  ;fi
 deploy:
   provider: releases
-  api_key:
-    secure: s5yduBUftXYOyJS+lY68+LHSNLZ9klzSLlRq55MTPweMMZuDFbwFGQ/KmKnPX8GgOsICsLL7POHrko6DI7tmu3hPgr7H/Zy35kBda/nPoYZt4UV0Qi6S+5APcWG2LhYGg0+UGJ5oCyHPHc+7bTlH1jqQG8Vla5GT3ugOy531eNBOnYkMhEuzw2pRmSs8ImDxKy4QoRGBTLm0BcfS0OzDdz5wOZHrDgmivRSlJd0e+yEBcyRMRFtOOa5ZcOzC7afQ98NSdUJadOMLwJrsazQ20Cgm2dNl/yAtdslxJm8mdnYDgFW0s4PqFGh7TmCiiupMC0E9mKcBnBw6LmNflHf+DeDGNlDdMCEnbMxw3THRDNEGN9WqwXUK6fkgm/0FzFzC+V+sFNkuHJOIoQ0HnVjYKdLew4jfzd1O/tzC0TB5kPctK6ZGD2GWMG5Xx2oZHKeKT9h7RYgQ34Fay1B6ztZF0KYWoPJLsGTX9wVuFrT9BkTC6IhmG1X80axZw1I4x9jdr5pANTjfjW84pDCzaxs/yEfEwEDFs3q1IK85bqD42bdByAfV8E8fNVI1rTJHYSYf4T9dsMgPEjHrwMxgBS2QPteJQpsARjHv8vxeF3l8HdPL0e8XD3aXTP4ZGmQK7h+UQFRyk7u/waThkxzY0QLzR6gUDocEf271dlo/xZp/Cv0=
   file:
-   - 'solver_application/_build/solver-source-files.zip'
-   - 'solver_application/_build/solver-source-files.tar.gz'
-   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then 'solver_application/_build/solver.dmg'  ;fi
-   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.rpm'  ;fi
-   - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.deb'  ;fi
+  - solver_application/_build/solver-source-files.zip
+  - solver_application/_build/solver-source-files.tar.gz
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then 'solver_application/_build/solver.dmg'  ;fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.rpm'  ;fi
+  - if [ "$TRAVIS_OS_NAME" = "linux" ]; then 'solver_application/_build/solver.deb'  ;fi
   on:
     tags: true
     repo: Robert29000/timp_lab_03
-  skip_cleanup: 'true'
+  cleanup: 'true'
+  token:
+    secure: KfTudBmixmrCcmMrKDLHuxu06AtQEh44tUG//JRI6Rj7sVa388Am1GnplznU48Z9vsii/UJCGS7CYoKXVuE6ufBgaUUn1T4LiDTQ1SJRCQco8VcQXyeWsoPnIFjzTSU1EbjkfxsXrReKOlECIV4FO8f53r7VjTtBKLorcdFwWYJWDMSRQqr7NrB0Y3eL307PE8tr6x7LjqTQHLNeC8Pcs5CGg36G/IuWaxPb30sUwefk5D/43Egfw/Px2jEX38tTfMwq9qXdNW+Q0bd+Ud+3mHtVhLlWThG30Z7TGK/YHIa9FCf6okLnVW6PiA9PytPFjs0AFeWZvHRyaOqYwhY8nOqvrslyND0RtgA0I7mSQfO62GuiWPVhQgtcv6faD3GSQazC4ixiiQJ60hUeyletpRXpAtvLMWlegKraGyV2v2qThggphtxubPaLG2pesds01p1t/dqo0KPSq38lT8XblF9uJViin6yqW5JRJOhe4int5ou4UOGWJnQN9G25XtVU8B2JdGPZczJHyOiZUacXkNHbKtDjzNl6IrDoLy6ZAooxxuasIu8w3teNihLVsE3oqMrFKS0BDJlvZHUdvBo1uxdupIkVY53ZgjMtHvt3IQAF2wd8u9cVp/XeZn+9rf/dR3s1beDKK/JDQHj0qGOoefTcWe6Xiu9yKNQidCl1bUw=
